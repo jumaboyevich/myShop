@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {
@@ -11,18 +9,28 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridTile(
-        child: Image.network(imageUrl, fit: BoxFit.cover,),
+    return ClipRRect(
+      borderRadius: const BorderRadius.all(Radius.circular(10)),
+      child: GridTile(
         footer: GridTileBar(
-        title: Text(title),
-        backgroundColor: Colors.black54,
-        trailing: IconButton(
-          icon: const Icon(Icons.shopping_cart), onPressed: () {  },
+          title: Text(title),
+          backgroundColor: Colors.black87,
+          trailing: IconButton(
+            color: Theme.of(context).accentColor,
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {},
+          ),
+          leading: IconButton(
+            color: Theme.of(context).accentColor,
+            icon: const Icon(Icons.favorite),
+            onPressed: () {},
+          ),
         ),
-        leading: IconButton(
-        icon: const Icon(Icons.favorite), onPressed: () {  },
+        child: Image.network(
+          imageUrl,
+          fit: BoxFit.cover,
         ),
-    ),
+      ),
     );
   }
 }
